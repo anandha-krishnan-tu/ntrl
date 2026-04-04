@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Saira+Stencil+One&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+    font-family: "Roboto Condensed", sans-serif;
+    color: white;
+}
+
+img {
+    height: 100%;
+    width: auto;
+}
+
+section {
+    background-size: cover;
+    background-position: center;
+}
+
+button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: rgb(25, 223, 25);
+    color: white;
+    border: solid 2px white;
+    transition: all .3s;
+
+    &:hover{
+        background-color: white;
+        color: rgb(25, 223, 25);
+        border: solid 2px rgb(25, 223, 25);
+    }
+}

@@ -1,0 +1,438 @@
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10dvh;
+    width: 100%;
+    padding: 1% 4%;
+    position: fixed;
+    backdrop-filter: blur(10px);
+    z-index: 99999;
+
+    .logo-container{
+        height: 100%;
+    }
+
+    .navlinks{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 50%;
+        color: white;
+
+        li{
+            list-style: none;
+            cursor: pointer;
+            font-size: 1.3vw;
+            transition: 0.3s;
+
+            &:hover{
+                color: rgb(25, 223, 25);
+            }
+        }
+
+        .active{
+            color: rgb(25, 223, 25);
+            text-decoration: underline;
+        }
+    }
+
+    .view-plans-btn{
+        width: 12%;
+        height: 70%;;
+        border-radius: 100px;
+        font-size: 1.1vw;
+    }
+}
+
+section{
+    width: 100%;
+    height: 100dvh;
+    padding: 1px;
+    position: relative;
+}
+
+.home{
+    background-image: url('/home-bg.png');
+
+    .home-contents{
+        width: 50%;
+        margin-left: 4%;
+        margin-top: 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 99;
+        position: relative;
+
+        .main-title{
+            font-size: 36dvh;
+            padding: 0;
+            margin: 0;
+            font-family: "Saira Stencil ONe";
+            line-height: 1;
+        }
+
+        .sub-title{
+            font-family: "Oswald";
+            font-size: 5.8dvh;
+            font-weight: 300;
+            letter-spacing: 3.9%;
+            margin-top: -5%;
+        }
+
+        .cta-btn-container{
+            height: 7dvh;
+            display: flex;
+            align-items: stretch;
+            justify-content: space-around;
+            margin-top: 3%;
+            width: 100%;
+
+            button{
+                width: 40%;
+                font-size: 1.8vw;
+                border-radius: 200px;
+                gap: 20px;
+
+                .icon{
+                    font-size: 2.7vw;
+                }
+            }
+        }
+
+        .social-media-icons-container{
+            height: 8dvh;
+            width: 100%;
+            margin-top: 4%;
+            display: flex;
+            align-items: stretch;
+            justify-content: space-evenly;
+
+            .icon{
+                font-size: 4dvw;
+                color: rgb(25, 223, 25);
+
+                &:hover{
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .home-backdrop{
+        background: linear-gradient(to left,rgba(0,0,0,0),rgba(0,0,0,0.474));
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 9;
+    }
+}
+
+.about{
+    background-image: url('/about-bg.png');
+
+    .about-container{
+        width: 70%;
+        height: 50%;
+        position: absolute;
+        right: 4%;
+        top: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 999;
+
+        .main-title{
+            font-size: 6.6dvh;
+        }
+
+        .sub-title{
+            font-family: "Oswald";
+            font-size: 3.2dvh;
+            text-align: center;
+        }
+
+        .paper-title{
+            height: 40%;
+            width: 70%;
+            background-image: url('/paper-peace.png');
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(48, 147, 48);
+            font-size: 1.6vw;
+            margin-top: 2%;
+            transition: all 0.3s;
+
+            &:hover{
+                transform: rotate(5deg);
+                cursor: pointer;
+            }
+        }
+
+        .button-container{
+            display: flex;
+            width: 70%;
+            height: 15%;
+            margin-top: 3%;
+            justify-content: space-between;
+
+            button{
+                width: 45%;
+                border-radius: 300px;
+                font-size: 1.2vw;
+
+                .icon{
+                    font-size: 2.2vw;
+                }
+            }
+        }
+    }
+
+    .about-backdrop{
+        background: linear-gradient(to right,rgba(0,0,0,0.1),rgba(0,0,0,0.474));
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 9;
+    }
+}
+
+.features{
+    background-image: url('/features-bg.png');
+
+    .features-contents{
+        margin-left: 4%;
+        margin-top: 10%;
+        width: 55%;
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        z-index: 999;
+
+        .main-title{
+            font-size: 9dvh;
+        }
+
+        .sub-title{
+            font-family: "Oswald";
+            font-size: 3dvh;
+        }
+
+        .cards-container{
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            height: 100%;
+            margin-top: 4%;
+            gap: 20px;
+
+            .card{
+                background-color: rgb(25, 223, 25);
+                border-radius: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s;
+
+                .title{
+                    font-size: 3.5dvh;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    text-decoration: underline;
+
+                    .icon{
+                        font-size: 5dvh;
+                    }
+                }
+
+                .description{
+                    font-size: 3dvh;
+                    padding: 20px;
+                }
+
+                &:hover{
+                    background-color: white;
+                    color: rgb(25, 223, 25);
+                }
+            }
+        }
+    }
+
+    .features-backdrop{
+        background: linear-gradient(to left,rgba(0,0,0,0.1),rgba(0,0,0,0.474));
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 99;
+    }
+}
+
+.plans{
+    background: linear-gradient(to bottom, rgba(0,0,0),rgb(8, 8, 78));
+
+    .plans-container{
+        width: 90%;
+        height: 80%;
+        margin-top: 12dvh;
+        margin-left: 5vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .main-title{
+            font-size: 7dvh;
+        }
+
+        .sub-title{
+            font-size: 2.8dvh;
+            font-family: "Oswald";
+        }
+
+        .cards-container{
+            width: 80%;
+            flex: 1;
+            margin-top: 2%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card{
+            background-color: blue;
+            height: 90%;
+            width: 30%;
+            background: linear-gradient(to bottom,#D6F5D6,#ADEBAD);
+            border-radius: 20px;
+
+            .top-section{
+                background-color: white;
+                height: 40%;
+                border-radius: 20px;
+                color: black;
+                padding: 4%;
+
+                .head-tag{
+                    background-color: #28A428;
+                    width: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    height: 20%;
+                    border-radius: 100px;
+                    color: white;
+                }
+
+                .week-text{
+                    font-size: 2.2dvh;
+                    margin-top: 2%;
+                    font-weight: 500;
+                }
+
+                .description-section{
+                    font-size: 1.8dvh;
+                }
+
+                .price{
+                    font-family: "Oswald";
+                    font-size: 6dvh;
+                    text-align: center;
+                    margin-top: 6%;
+                }
+            }
+
+            .bottom-section{
+                height: 60%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                color: black;
+
+                .description-section{
+                    font-size: 2dvh;
+                    text-align: center;
+                    font-weight: 500;
+                }
+
+                .plan-details{
+                    width: 90%;
+                    list-style: none;
+                    font-size: 2.3dvh;
+
+                    li{
+                        margin-top: 10px;
+                    }
+                }
+
+                .start-plan-button{
+                    background-color: #28A428;
+                    width: 80%;
+                    height: 15%;
+                    font-size: 1.8dvh;
+                    border-radius: 200px;
+
+                    .icon{
+                        font-size: 4dvh;
+                    }
+                }
+            }
+        }
+
+        .popular{
+            height: 100%;
+            background: #32CD32;
+            box-shadow: 0px 0px 20px 10px #28A428;
+
+            .top-section{
+                background: #D6F5D6;
+                .head-tag{
+                    background-color: #D6F5D6;
+                    width: 90%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .left{
+                        background-color: #145214;
+                        width: 60%;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 100px;
+                        gap: 10px;
+                    }
+
+                    .right{
+                        color: #145214;
+                        font-size: 1.7dvh;
+                        font-weight: 700;
+                    }
+                }
+            }
+
+            .bottom-section{
+                .start-plan-button{
+                    background-color: #145214;
+                }
+            }
+        }
+    }
+}
