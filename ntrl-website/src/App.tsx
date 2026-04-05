@@ -1,4 +1,5 @@
 import './App.scss';
+import * as React from 'react';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import MailIcon from '@mui/icons-material/Mail';
@@ -21,6 +22,15 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import TextField from '@mui/material/TextField';
+import PhoneInput from 'react-phone-number-input'
+import 'react-phone-number-input/style.css'
+import InputAdornment from '@mui/material/InputAdornment';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import type { SelectChangeEvent } from '@mui/material/Select';
+import SendIcon from '@mui/icons-material/Send';
 
 function App() {
 
@@ -30,6 +40,15 @@ function App() {
       element.scrollIntoView({ behavior: "smooth" });
     }
   }
+
+  const [value, setValue] = useState<string | undefined>()
+
+  const [days, setDays] = React.useState('');
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setDays(event.target.value as string);
+  };
+
 
   const [activeNav, setActiveNav] = useState("home");
 
@@ -355,7 +374,7 @@ function App() {
                   Ahalya Sivarajan
                 </div>
                 <div className="instagram-icon">
-                  <a href="https://wwww.instagram.com/ahalya_sivarajan?igsh=MWlza2Qxc2gydXB4aw=="><InstagramIcon className='icon' /></a>
+                  <a href="https://www.instagram.com/ahalya_sivarajan?igsh=MTdiZTUxd2N5MXNydA==" target="_blank" rel="noopener noreferrer"><InstagramIcon className='icon' /></a>
                 </div>
               </div>
               <div className="middle-section">
@@ -391,7 +410,7 @@ function App() {
                   Gokil Nair
                 </div>
                 <div className="instagram-icon">
-                  <InstagramIcon className='icon' />
+                  <a href="https://www.instagram.com/gokilvn007?igsh=Z3AwcXo3bTNldmgz" target="_blank" rel="noopener noreferrer"><InstagramIcon className='icon' /></a>
                 </div>
               </div>
               <div className="middle-section">
@@ -427,7 +446,7 @@ function App() {
                   Pooja Unnikrishnan
                 </div>
                 <div className="instagram-icon">
-                  <InstagramIcon className='icon' />
+                  <a href="https://www.instagram.com/pooja_unnikrishnan?igsh=bzFvbjdyYmdjZWV1" target="_blank" rel="noopener noreferrer"><InstagramIcon className='icon' /></a>
                 </div>
               </div>
               <div className="middle-section">
@@ -511,9 +530,53 @@ function App() {
               </div>
             </div>
             <div className="right-side">
-              <TextField label="Full Name" variant="outlined" />
-              <TextField label="Email Address" variant="outlined" />
-              <TextField label="Full Name" variant="outlined" />
+              <TextField label="Full Name" variant="outlined" type='text' />
+              <TextField label="Email Address" variant="outlined" type='email' />
+              <PhoneInput
+                placeholder="Enter phone number"
+                defaultCountry="IN"
+                value={value}
+                onChange={setValue}
+              />
+              <div className="age-height-container">
+                <TextField label="Age" variant="outlined" type='number' />
+                <TextField label="Height" variant="outlined" type='number' />
+              </div>
+              <div className="weight-week-container">
+                <TextField
+                  label="Current Weight"
+                  id="outlined-start-adornment"
+                  slotProps={{
+                    input: {
+                      startAdornment: <InputAdornment position="start">kg</InputAdornment>,
+                    },
+                  }}
+                />
+                <FormControl fullWidth>
+                  <InputLabel>Training Days Per Week</InputLabel>
+                  <Select
+                    labelId="Training Days Per Week"
+                    value={days}
+                    label="Training Days Per Week"
+                    onChange={handleChange}
+                  >
+                    <MenuItem value={1}>1</MenuItem>
+                    <MenuItem value={2}>2</MenuItem>
+                    <MenuItem value={3}>3</MenuItem>
+                    <MenuItem value={4}>4</MenuItem>
+                    <MenuItem value={5}>5</MenuItem>
+                    <MenuItem value={6}>6</MenuItem>
+                    <MenuItem value={7}>7</MenuItem>
+                  </Select>
+                </FormControl>
+              </div>
+              <TextField
+                label="Message"
+                multiline
+                rows={4}
+                defaultValue="Type your message here"
+              />
+              <button className="send-msg-btn">Send Message <SendIcon className='icon'/></button>
             </div>
           </div>
         </div>
