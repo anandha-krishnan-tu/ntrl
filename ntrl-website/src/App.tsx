@@ -352,10 +352,10 @@ function App() {
 
                 </div>
                 <div className="name">
-                  Aswathy Krishna
+                  Ahalya Sivarajan
                 </div>
                 <div className="instagram-icon">
-                  <InstagramIcon className='icon' />
+                  <a href="https://wwww.instagram.com/ahalya_sivarajan?igsh=MWlza2Qxc2gydXB4aw=="><InstagramIcon className='icon' /></a>
                 </div>
               </div>
               <div className="middle-section">
@@ -388,7 +388,7 @@ function App() {
 
                 </div>
                 <div className="name">
-                  Muhammed Shahin
+                  Gokil Nair
                 </div>
                 <div className="instagram-icon">
                   <InstagramIcon className='icon' />
@@ -424,7 +424,7 @@ function App() {
 
                 </div>
                 <div className="name">
-                  Theja V S
+                  Pooja Unnikrishnan
                 </div>
                 <div className="instagram-icon">
                   <InstagramIcon className='icon' />
