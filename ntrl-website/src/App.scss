@@ -1,4 +1,4 @@
-nav{
+nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -9,53 +9,54 @@ nav{
     backdrop-filter: blur(10px);
     z-index: 99999;
 
-    .logo-container{
+    .logo-container {
         height: 100%;
     }
 
-    .navlinks{
+    .navlinks {
         display: flex;
         align-items: center;
         justify-content: space-between;
         width: 50%;
         color: white;
 
-        li{
+        li {
             list-style: none;
             cursor: pointer;
             font-size: 1.3vw;
             transition: 0.3s;
 
-            &:hover{
+            &:hover {
                 color: rgb(25, 223, 25);
             }
         }
 
-        .active{
+        .active {
             color: rgb(25, 223, 25);
             text-decoration: underline;
         }
     }
 
-    .view-plans-btn{
+    .view-plans-btn {
         width: 12%;
-        height: 70%;;
+        height: 70%;
+        ;
         border-radius: 100px;
         font-size: 1.1vw;
     }
 }
 
-section{
+section {
     width: 100%;
     height: 100dvh;
     padding: 1px;
     position: relative;
 }
 
-.home{
-    background-image: url('/home-bg.png');
+.home {
+    background-image: url('/home-bg.avif');
 
-    .home-contents{
+    .home-contents {
         width: 50%;
         margin-left: 4%;
         margin-top: 10%;
@@ -65,7 +66,7 @@ section{
         z-index: 99;
         position: relative;
 
-        .main-title{
+        .main-title {
             font-size: 36dvh;
             padding: 0;
             margin: 0;
@@ -73,7 +74,7 @@ section{
             line-height: 1;
         }
 
-        .sub-title{
+        .sub-title {
             font-family: "Oswald";
             font-size: 5.8dvh;
             font-weight: 300;
@@ -81,7 +82,7 @@ section{
             margin-top: -5%;
         }
 
-        .cta-btn-container{
+        .cta-btn-container {
             height: 7dvh;
             display: flex;
             align-items: stretch;
@@ -89,19 +90,19 @@ section{
             margin-top: 3%;
             width: 100%;
 
-            button{
+            button {
                 width: 40%;
                 font-size: 1.8vw;
                 border-radius: 200px;
                 gap: 20px;
 
-                .icon{
+                .icon {
                     font-size: 2.7vw;
                 }
             }
         }
 
-        .social-media-icons-container{
+        .social-media-icons-container {
             height: 8dvh;
             width: 100%;
             margin-top: 4%;
@@ -109,19 +110,19 @@ section{
             align-items: stretch;
             justify-content: space-evenly;
 
-            .icon{
+            .icon {
                 font-size: 4dvw;
                 color: rgb(25, 223, 25);
 
-                &:hover{
+                &:hover {
                     color: white;
                 }
             }
         }
     }
 
-    .home-backdrop{
-        background: linear-gradient(to left,rgba(0,0,0,0),rgba(0,0,0,0.474));
+    .home-backdrop {
+        background: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.474));
         width: 100%;
         height: 100%;
         position: absolute;
@@ -131,10 +132,16 @@ section{
     }
 }
 
-.about{
-    background-image: url('/about-bg.png');
+@supports not (background-image: url('/home-bg.avif')) {
+    .home {
+        background-image: url('/home-bg.webp')
+    }
+}
 
-    .about-container{
+.about {
+    background-image: url('/about-bg.avif');
+
+    .about-container {
         width: 70%;
         height: 50%;
         position: absolute;
@@ -145,20 +152,20 @@ section{
         align-items: center;
         z-index: 999;
 
-        .main-title{
-            font-size: 6.6dvh;
+        .main-title {
+            font-size: 5.8dvh;
         }
 
-        .sub-title{
+        .sub-title {
             font-family: "Oswald";
-            font-size: 3.2dvh;
+            font-size: 3dvh;
             text-align: center;
         }
 
-        .paper-title{
+        .paper-title {
             height: 40%;
             width: 70%;
-            background-image: url('/paper-peace.png');
+            background-image: url('/paper-peace.avif');
             background-position: center;
             background-size: contain;
             background-repeat: no-repeat;
@@ -170,33 +177,33 @@ section{
             margin-top: 2%;
             transition: all 0.3s;
 
-            &:hover{
+            &:hover {
                 transform: rotate(5deg);
                 cursor: pointer;
             }
         }
 
-        .button-container{
+        .button-container {
             display: flex;
             width: 70%;
             height: 15%;
             margin-top: 3%;
             justify-content: space-between;
 
-            button{
+            button {
                 width: 45%;
                 border-radius: 300px;
                 font-size: 1.2vw;
 
-                .icon{
+                .icon {
                     font-size: 2.2vw;
                 }
             }
         }
     }
 
-    .about-backdrop{
-        background: linear-gradient(to right,rgba(0,0,0,0.1),rgba(0,0,0,0.474));
+    .about-backdrop {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.474));
         width: 100%;
         height: 100%;
         position: absolute;
@@ -206,10 +213,22 @@ section{
     }
 }
 
-.features{
-    background-image: url('/features-bg.png');
+@supports not (background-image: url('/about-bg.avif')) {
+    .about {
+        background-image: url('/about-bg.webp');
+    }
+}
 
-    .features-contents{
+@supports not (background-image: url('/paper-peace.avif')) {
+    .paper-title {
+        background-image: url('/paper-peace.webp');
+    }
+}
+
+.features {
+    background-image: url('/features-bg.avif');
+
+    .features-contents {
         margin-left: 4%;
         margin-top: 10%;
         width: 55%;
@@ -220,24 +239,24 @@ section{
         position: relative;
         z-index: 999;
 
-        .main-title{
+        .main-title {
             font-size: 9dvh;
         }
 
-        .sub-title{
+        .sub-title {
             font-family: "Oswald";
             font-size: 3dvh;
         }
 
-        .cards-container{
+        .cards-container {
             width: 100%;
             display: grid;
-            grid-template-columns: repeat(2,1fr);
+            grid-template-columns: repeat(2, 1fr);
             height: 100%;
             margin-top: 4%;
             gap: 20px;
 
-            .card{
+            .card {
                 background-color: rgb(25, 223, 25);
                 border-radius: 20px;
                 display: flex;
@@ -246,7 +265,7 @@ section{
                 justify-content: center;
                 transition: all 0.3s;
 
-                .title{
+                .title {
                     font-size: 3.5dvh;
                     display: flex;
                     align-items: center;
@@ -254,17 +273,17 @@ section{
                     gap: 10px;
                     text-decoration: underline;
 
-                    .icon{
+                    .icon {
                         font-size: 5dvh;
                     }
                 }
 
-                .description{
+                .description {
                     font-size: 3dvh;
                     padding: 20px;
                 }
 
-                &:hover{
+                &:hover {
                     background-color: white;
                     color: rgb(25, 223, 25);
                 }
@@ -272,8 +291,8 @@ section{
         }
     }
 
-    .features-backdrop{
-        background: linear-gradient(to left,rgba(0,0,0,0.1),rgba(0,0,0,0.474));
+    .features-backdrop {
+        background: linear-gradient(to left, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.474));
         width: 100%;
         height: 100%;
         position: absolute;
@@ -283,10 +302,17 @@ section{
     }
 }
 
-.plans{
-    background: linear-gradient(to bottom, rgba(0,0,0),rgb(8, 8, 78));
+@supports not (background-image: url('/features-bg.avif')) {
+    .features {
+        background-image: url('/features-bg.webp');
+    }
+}
 
-    .plans-container{
+.plans {
+    background-image: url('/backup-bg.avif');
+
+    .plans-container {
+        position: relative;
         width: 90%;
         height: 80%;
         margin-top: 12dvh;
@@ -294,17 +320,18 @@ section{
         display: flex;
         flex-direction: column;
         align-items: center;
+        z-index: 999;
 
-        .main-title{
+        .main-title {
             font-size: 7dvh;
         }
 
-        .sub-title{
+        .sub-title {
             font-size: 2.8dvh;
             font-family: "Oswald";
         }
 
-        .cards-container{
+        .cards-container {
             width: 80%;
             flex: 1;
             margin-top: 2%;
@@ -313,21 +340,21 @@ section{
             justify-content: space-between;
         }
 
-        .card{
+        .card {
             background-color: blue;
             height: 90%;
             width: 30%;
-            background: linear-gradient(to bottom,#D6F5D6,#ADEBAD);
+            background: linear-gradient(to bottom, #D6F5D6, #ADEBAD);
             border-radius: 20px;
 
-            .top-section{
+            .top-section {
                 background-color: white;
                 height: 40%;
                 border-radius: 20px;
                 color: black;
                 padding: 4%;
 
-                .head-tag{
+                .head-tag {
                     background-color: #28A428;
                     width: 50%;
                     display: flex;
@@ -339,17 +366,17 @@ section{
                     color: white;
                 }
 
-                .week-text{
+                .week-text {
                     font-size: 2.2dvh;
                     margin-top: 2%;
                     font-weight: 500;
                 }
 
-                .description-section{
+                .description-section {
                     font-size: 1.8dvh;
                 }
 
-                .price{
+                .price {
                     font-family: "Oswald";
                     font-size: 6dvh;
                     text-align: center;
@@ -357,7 +384,7 @@ section{
                 }
             }
 
-            .bottom-section{
+            .bottom-section {
                 height: 60%;
                 display: flex;
                 flex-direction: column;
@@ -365,53 +392,62 @@ section{
                 justify-content: space-around;
                 color: black;
 
-                .description-section{
+                .description-section {
                     font-size: 2dvh;
                     text-align: center;
                     font-weight: 500;
                 }
 
-                .plan-details{
+                .plan-details {
                     width: 90%;
                     list-style: none;
                     font-size: 2.3dvh;
 
-                    li{
+                    li {
                         margin-top: 10px;
                     }
                 }
 
-                .start-plan-button{
+                .start-plan-button {
                     background-color: #28A428;
                     width: 80%;
                     height: 15%;
                     font-size: 1.8dvh;
                     border-radius: 200px;
+                    gap: 5px;
 
-                    .icon{
+                    .icon {
                         font-size: 4dvh;
                     }
                 }
             }
+
+            transition: all 0.3s linear;
+
+            &:hover {
+                transform: scale(1.05);
+                cursor: pointer;
+            }
         }
 
-        .popular{
+        .popular {
             height: 100%;
             background: #32CD32;
             box-shadow: 0px 0px 20px 10px #28A428;
 
-            .top-section{
+            .top-section {
                 background: #D6F5D6;
-                .head-tag{
+
+                .head-tag {
                     background-color: #D6F5D6;
-                    width: 90%;
+                    width: 95%;
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
 
-                    .left{
+                    .left {
                         background-color: #145214;
-                        width: 60%;
+                        width: 65%;
                         height: 100%;
                         display: flex;
                         align-items: center;
@@ -420,7 +456,7 @@ section{
                         gap: 10px;
                     }
 
-                    .right{
+                    .right {
                         color: #145214;
                         font-size: 1.7dvh;
                         font-weight: 700;
@@ -428,11 +464,203 @@ section{
                 }
             }
 
-            .bottom-section{
-                .start-plan-button{
+            .bottom-section {
+                .start-plan-button {
                     background-color: #145214;
+                    width: 90%;
                 }
             }
         }
+    }
+
+    .plans-backdrop {
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 99;
+    }
+}
+
+@supports not (background-image: url('/backup-bg.avif')) {
+    .plans {
+        background-image: url('/backup-bg.webp');
+    }
+}
+
+.success-stories {
+    background-image: url('/success-stories-bg.avif');
+    overflow: hidden;
+
+    .success-stories-contents {
+        position: relative;
+        z-index: 999;
+        height: 80%;
+        width: 90%;
+        margin-top: 8%;
+        margin-left: 5%;
+        display: flex;
+        flex-direction: column;
+
+        .title-section {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+
+            .main-title {
+                font-size: 5dvh;
+                border-right: solid 5px;
+                padding-right: 40px;
+            }
+
+            .sub-title {
+                font-size: 2.5dvh;
+            }
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+            overflow-y: auto;
+            margin-top: 3%;
+            scrollbar-track-color: transparent;
+            scrollbar-color: #888 transparent;
+            scrollbar-width: thin;
+            padding-right: 10px;
+
+            &::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            .card {
+                aspect-ratio: 1/1.2;
+                border-radius: 30px;
+                border: solid 4px rgb(25, 223, 25);
+                background-color: white;
+                color: black;
+                display: flex;
+                flex-direction: column;
+
+                .top-section {
+                    border-radius: 30px;
+                    height: 20%;
+                    display: flex;
+                    align-items: center;
+                    padding-left: 4%;
+                    gap: 4%;
+
+                    .pro-pic {
+                        height: 80%;
+                        aspect-ratio: 1;
+                        background-position: center;
+                        background-size: cover;
+                        border-radius: 50%;
+                        border: solid 2px rgb(25, 223, 25);
+                    }
+
+                    .name {
+                        font-size: 2.5dvh;
+                        font-weight: 600;
+                    }
+
+                    .instagram-icon {
+                        height: 40%;
+                        aspect-ratio: 1;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        .icon {
+                            font-size: 4dvh;
+                        }
+                    }
+                }
+
+                .middle-section {
+                    margin: 2% 4% 0% 4%;
+                }
+
+                .bottom-section {
+                    display: flex;
+                    flex: 1;
+                    margin: 4%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 2%;
+
+                    .before-section,
+                    .after-section {
+                        height: 100%;
+                        width: 50%;
+                        border-radius: 20px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        .title {
+                            font-size: 2.5dvh;
+                        }
+
+                        .image {
+                            flex: 1;
+                            width: 100%;
+                            border: solid 2px rgb(25, 223, 25);
+                            border-radius: 20px;
+                            background-size: cover;
+                            background-position: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .success-stories-backdrop {
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 99;
+    }
+}
+
+@supports not (background-image: url('/success-stories-bg.avif')){
+    .success-stories{
+        background-image: url('/success-stories-bg.webp');
+    }
+}
+
+.contact-us{
+    background-image: url('/contact-us-bg.avif');
+
+    .contact-us-contents{
+        position: relative;
+        z-index: 999;
+    }
+
+    .contact-us-backdrop{
+        background-color: rgba(0,0,0,0.4);
+        backdrop-filter: blur(5px);
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 99;
+    }
+}
+
+@supports not (background-image: url('/contact-us-bg.avif')){
+    .contact-us{
+        background-image: url('/contact-us-bg.webp');
     }
 }

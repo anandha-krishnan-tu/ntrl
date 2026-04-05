@@ -17,6 +17,10 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import PhoneIcon from '@mui/icons-material/Phone';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import TextField from '@mui/material/TextField';
 
 function App() {
 
@@ -66,7 +70,7 @@ function App() {
           <li className={activeNav === "contact-us" ? "active" : ""} onClick={() => ScrollIntoSection("contact-us")}>Contact Us</li>
         </ul>
 
-        <button className="view-plans-btn">View Plans <ArrowCircleRightIcon /></button>
+        <button className="view-plans-btn" onClick={() => ScrollIntoSection("plans")}>View Plans <ArrowCircleRightIcon /></button>
       </nav>
 
       <section className="home" id="home">
@@ -78,8 +82,8 @@ function App() {
             Nutrition - Training - Results - Longevity
           </div>
           <div className="cta-btn-container">
-            <button className="join-now-btn">Join Now <KeyboardDoubleArrowRightIcon className='icon' /></button>
-            <button className="contact-us-btn">Contact Us <MailIcon className='icon' /></button>
+            <button className="join-now-btn" onClick={() => ScrollIntoSection("plans")}>Join Now <KeyboardDoubleArrowRightIcon className='icon' /></button>
+            <button className="contact-us-btn" onClick={() => ScrollIntoSection("contact-us")}>Contact Us <MailIcon className='icon' /></button>
           </div>
           <div className="social-media-icons-container">
             <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
@@ -167,7 +171,7 @@ function App() {
             <div className="card">
               <div className="top-section">
                 <div className="head-tag">
-                  Kickstart Plan <CheckIcon className='icon'/>
+                  Kickstart Plan <CheckIcon className='icon' />
                 </div>
                 <div className="week-text">
                   4 Weeks Coaching
@@ -184,13 +188,13 @@ function App() {
                   Get started with structure, build habits and foundation
                 </div>
                 <ul className="plan-details">
-                  <li><CheckCircleIcon className='icon'/> Workout plan</li>
-                  <li><CheckCircleIcon className='icon'/> Basic nutrition guidance</li>
-                  <li><CheckCircleIcon className='icon'/> Weekly check-in</li>
-                  <li><CheckCircleIcon className='icon'/> Messaging support</li>
+                  <li><CheckCircleIcon className='icon' /> Workout plan</li>
+                  <li><CheckCircleIcon className='icon' /> Basic nutrition guidance</li>
+                  <li><CheckCircleIcon className='icon' /> Weekly check-in</li>
+                  <li><CheckCircleIcon className='icon' /> Messaging support</li>
                 </ul>
                 <button className="start-plan-button">
-                  Start Kickstart Plan <ArrowRightIcon className='icon'/>
+                  Start Kickstart Plan <ArrowRightIcon className='icon' />
                 </button>
               </div>
             </div>
@@ -198,7 +202,7 @@ function App() {
               <div className="top-section">
                 <div className="head-tag">
                   <div className="left">
-                    Transformation Plan <StarBorderIcon className='icon'/>
+                    Transformation Plan <StarBorderIcon className='icon' />
                   </div>
                   <div className="right">
                     | CORE PRODUCT
@@ -219,20 +223,20 @@ function App() {
                   This is your Real Program
                 </div>
                 <ul className="plan-details">
-                  <li><CheckCircleIcon className='icon'/> Full training program</li>
-                  <li><CheckCircleIcon className='icon'/> Detailed meal plan (grams/macros)</li>
-                  <li><CheckCircleIcon className='icon'/> Weekly adjustments</li>
-                  <li><CheckCircleIcon className='icon'/> Full support</li>
+                  <li><CheckCircleIcon className='icon' /> Full training program</li>
+                  <li><CheckCircleIcon className='icon' /> Detailed meal plan (grams/macros)</li>
+                  <li><CheckCircleIcon className='icon' /> Weekly adjustments</li>
+                  <li><CheckCircleIcon className='icon' /> Full support</li>
                 </ul>
                 <button className="start-plan-button">
-                  Start Transformation Plan <ArrowRightIcon className='icon'/>
+                  Start Transformation Plan <ArrowRightIcon className='icon' />
                 </button>
               </div>
             </div>
             <div className="card">
               <div className="top-section">
                 <div className="head-tag">
-                  Elite Plan <AutoGraphIcon className='icon'/>
+                  Elite Plan <AutoGraphIcon className='icon' />
                 </div>
                 <div className="week-text">
                   12 Weeks Coaching
@@ -249,26 +253,272 @@ function App() {
                   This is where real transformation happens
                 </div>
                 <ul className="plan-details">
-                  <li><CheckCircleIcon className='icon'/> Everything included</li>
-                  <li><CheckCircleIcon className='icon'/> Deep tracking</li>
-                  <li><CheckCircleIcon className='icon'/> Lifestyle coaching</li>
-                  <li><CheckCircleIcon className='icon'/> Maximum accountability</li>
+                  <li><CheckCircleIcon className='icon' /> Everything included</li>
+                  <li><CheckCircleIcon className='icon' /> Deep tracking</li>
+                  <li><CheckCircleIcon className='icon' /> Lifestyle coaching</li>
+                  <li><CheckCircleIcon className='icon' /> Maximum accountability</li>
                 </ul>
                 <button className="start-plan-button">
-                  Start Elite Plan <ArrowRightIcon className='icon'/>
+                  Start Elite Plan <ArrowRightIcon className='icon' />
                 </button>
               </div>
             </div>
           </div>
         </div>
+        <div className="plans-backdrop"></div>
       </section>
 
       <section className="success-stories" id="success-stories">
 
+        <div className="success-stories-contents">
+          <div className="title-section">
+            <div className="main-title">Real results . Real people</div>
+            <div className="sub-title">Our members are building stronger, leaner bodies through structured coaching and consistency.</div>
+          </div>
+          <div className="cards-container">
+            <div className="card">
+              <div className="top-section">
+                <div className="pro-pic" style={{
+                  backgroundImage: "url(/success-one-propic.jpeg)"
+                }}>
+
+                </div>
+                <div className="name">
+                  Ruben Martin
+                </div>
+                <div className="instagram-icon">
+                  <InstagramIcon className='icon' />
+                </div>
+              </div>
+              <div className="middle-section">
+                I finally stayed consistent and saw real results.
+              </div>
+              <div className="bottom-section">
+                <div className="before-section">
+                  <div className="title">Before</div>
+                  <div className="image" style={{
+                    backgroundImage: "url(/success-one-before.jpeg)"
+                  }}></div>
+                </div>
+                <div className="after-section">
+                  <div className="title">After</div>
+                  <div className="image" style={{
+                    backgroundImage: "url(/success-one-after.jpeg)"
+                  }}></div>
+                </div>
+              </div>
+            </div>
+            <div className="card">
+              <div className="top-section">
+                <div className="pro-pic" style={{
+                  backgroundImage: "url(/success-two-propic.jpeg)"
+                }}>
+
+                </div>
+                <div className="name">
+                  Sara Mathews
+                </div>
+                <div className="instagram-icon">
+                  <InstagramIcon className='icon' />
+                </div>
+              </div>
+              <div className="middle-section">
+                I finally stayed consistent and saw real results.
+              </div>
+              <div className="bottom-section">
+                <div className="before-section">
+                  <div className="title" >Before</div>
+                  <div className="image" style={{
+                    backgroundImage: "url(/success-two-before.jpeg)"
+                  }}>
+
+                  </div>
+                </div>
+                <div className="after-section">
+                  <div className="title">After</div>
+                  <div className="image" style={{
+                    backgroundImage: "url(/success-two-after.jpeg)"
+                  }}>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="card">
+              <div className="top-section">
+                <div className="pro-pic" style={{
+                  backgroundImage: "url(/success-three-propic.jpeg)"
+                }}>
+
+                </div>
+                <div className="name">
+                  Aswathy Krishna
+                </div>
+                <div className="instagram-icon">
+                  <InstagramIcon className='icon' />
+                </div>
+              </div>
+              <div className="middle-section">
+                I finally stayed consistent and saw real results.
+              </div>
+              <div className="bottom-section">
+                <div className="before-section">
+                  <div className="title">Before</div>
+                  <div className="image" style={{
+                    backgroundImage: "url(/success-three-before.jpeg)"
+                  }}>
+
+                  </div>
+                </div>
+                <div className="after-section">
+                  <div className="title">After</div>
+                  <div className="image" style={{
+                    backgroundImage: "url(/success-three-after.jpeg)"
+                  }}>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="card">
+              <div className="top-section">
+                <div className="pro-pic" style={{
+                  backgroundImage: "url(/success-four-propic.jpeg)"
+                }}>
+
+                </div>
+                <div className="name">
+                  Muhammed Shahin
+                </div>
+                <div className="instagram-icon">
+                  <InstagramIcon className='icon' />
+                </div>
+              </div>
+              <div className="middle-section">
+                I finally stayed consistent and saw real results.
+              </div>
+              <div className="bottom-section">
+                <div className="before-section">
+                  <div className="title">Before</div>
+                  <div className="image" style={{
+                    backgroundImage: "url(/success-four-before.jpeg)"
+                  }}>
+
+                  </div>
+                </div>
+                <div className="after-section">
+                  <div className="title">After</div>
+                  <div className="image" style={{
+                    backgroundImage: "url(/success-four-after.jpeg)"
+                  }}>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="card">
+              <div className="top-section">
+                <div className="pro-pic" style={{
+                  backgroundColor: 'green'
+                }}>
+
+                </div>
+                <div className="name">
+                  Theja V S
+                </div>
+                <div className="instagram-icon">
+                  <InstagramIcon className='icon' />
+                </div>
+              </div>
+              <div className="middle-section">
+                I finally stayed consistent and saw real results.
+              </div>
+              <div className="bottom-section">
+                <div className="before-section">
+                  <div className="title">Before</div>
+                  <div className="image" style={{
+                    backgroundImage: "url(/success-five-before.jpeg)"
+                  }}>
+
+                  </div>
+                </div>
+                <div className="after-section">
+                  <div className="title">After</div>
+                  <div className="image" style={{
+                    backgroundImage: "url(/success-five-after.jpeg)"
+                  }}>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="success-stories-backdrop"></div>
       </section>
 
       <section className="contact-us" id="contact-us">
+        <div className="contact-us-contents">
+          <div className="title-section">
+            <div className="main-title">
+              Start Your Transformation Today
+            </div>
+            <div className="sub-title">
+              Join NTRL and build a stronger, leaner body with structured coaching and real accountability.
+            </div>
+          </div>
+          <div className="contact-box-container">
+            <div className="left-side">
+              <div className="title">Don't hesitate to contact us</div>
+              <div className="card-container">
+                <div className="card">
+                  <div className="icon-container">
+                    <LocationOnIcon className='icon' />
+                  </div>
+                  <div className="text-container">
+                    <div className="main-text">Location</div>
+                    <div className="sub-text">Yas Mall - near Waltrose. Abu Dhabi</div>
+                  </div>
+                </div>
+                <div className="card">
+                  <div className="icon-container">
+                    <MailIcon className='icon' />
+                  </div>
+                  <div className="text-container">
+                    <div className="main-text">Email</div>
+                    <div className="sub-text">suppport@ntrlfitness.com</div>
+                  </div>
+                </div>
+                <div className="card">
+                  <div className="icon-container">
+                    <PhoneIcon className='icon' />
+                  </div>
+                  <div className="text-container">
+                    <div className="main-text">Phone</div>
+                    <div className="sub-text">+971 xxx-xxx-xx</div>
+                  </div>
+                </div>
+                <div className="card">
+                  <div className="icon-container">
+                    <AccessTimeIcon className='icon' />
+                  </div>
+                  <div className="text-container">
+                    <div className="main-text">Work Hours</div>
+                    <div className="sub-text">Monday - Saturday 9:00AM - 8:00PM</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="right-side">
+              <TextField label="Full Name" variant="outlined" />
+              <TextField label="Email Address" variant="outlined" />
+              <TextField label="Full Name" variant="outlined" />
+            </div>
+          </div>
+        </div>
 
+        <div className="contact-us-backdrop"></div>
       </section>
     </div>
   )
