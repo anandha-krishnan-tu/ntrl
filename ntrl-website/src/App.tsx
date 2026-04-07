@@ -24,13 +24,13 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import TextField from '@mui/material/TextField';
 import PhoneInput from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
-import InputAdornment from '@mui/material/InputAdornment';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import type { SelectChangeEvent } from '@mui/material/Select';
 import SendIcon from '@mui/icons-material/Send';
+import emailjs from '@emailjs/browser';
+import { useRef } from 'react';
 
 function App() {
 
@@ -40,14 +40,6 @@ function App() {
       element.scrollIntoView({ behavior: "smooth" });
     }
   }
-
-  const [value, setValue] = useState<string | undefined>()
-
-  const [days, setDays] = React.useState('');
-
-  const handleChange = (event: SelectChangeEvent) => {
-    setDays(event.target.value as string);
-  };
 
 
   const [activeNav, setActiveNav] = useState("home");
@@ -72,6 +64,60 @@ function App() {
 
     return () => observer.disconnect();
   }, []);
+
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    age: '',
+    height: '',
+    weight: '',
+    days: '',
+    message: ''
+  });
+
+  const handleChangeForm = (e: any) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }))
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!formRef.current) return;
+
+    emailjs.sendForm(
+      'YOUR_SERVICE_ID',
+      'YOUR_TEMPLATE_ID',
+      formRef.current,
+      'YOUR_PUBLIC_KEY'
+    ).then(
+      () => {
+        alert("Message send successfully!");
+      },
+      (error) => {
+        console.error(error);
+        alert("Failed to send message");
+      }
+    );
+  };
+
+  const handleDecimalChange = (name: string, value: string) => {
+    // Allow empty
+    if (value === '') {
+      setFormData(prev => ({ ...prev, [name]: '' }));
+      return;
+    }
+
+    // Regex: numbers with up to 2 decimal places
+    const regex = /^\d*\.?\d{0,2}$/;
+
+    if (regex.test(value)) {
+      setFormData(prev => ({ ...prev, [name]: value }));
+    }
+  };
 
   return (
     <div className="main-container">
@@ -303,7 +349,7 @@ function App() {
 
                 </div>
                 <div className="name">
-                  Ruben Martin
+                  Biswas Ravindran
                 </div>
                 <div className="instagram-icon">
                   <InstagramIcon className='icon' />
@@ -335,7 +381,7 @@ function App() {
 
                 </div>
                 <div className="name">
-                  Sara Mathews
+                  Vaishnavi R Kartha
                 </div>
                 <div className="instagram-icon">
                   <InstagramIcon className='icon' />
@@ -528,61 +574,208 @@ function App() {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="right-side">
-              <TextField label="Full Name" variant="outlined" type='text' />
-              <TextField label="Email Address" variant="outlined" type='email' />
-              <PhoneInput
-                placeholder="Enter phone number"
-                defaultCountry="IN"
-                value={value}
-                onChange={setValue}
-              />
-              <div className="age-height-container">
-                <TextField label="Age" variant="outlined" type='number' />
-                <TextField label="Height" variant="outlined" type='number' />
+              <div className="social-media-container">
+                <div className="text">Our Social Media Platforms :</div>
+                <div className="social-media-icons-container">
+                  <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                    <FacebookIcon className='icon' />
+                  </a>
+                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                    <InstagramIcon className='icon' />
+                  </a>
+                  <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+                    <YouTubeIcon className='icon' />
+                  </a>
+                  <a href="https://t.me/" target="_blank" rel="noopener noreferrer">
+                    <TelegramIcon className='icon' />
+                  </a>
+                  <a href="https://wa.me/" target="_blank" rel="noopener noreferrer">
+                    <WhatsAppIcon className='icon' />
+                  </a>
+                  <a href="mailto:" target="_blank" rel="noopener noreferrer">
+                    <MailIcon className='icon' />
+                  </a>
+                </div>
               </div>
-              <div className="weight-week-container">
+            </div>
+
+            <form ref={formRef} onSubmit={handleSubmit} className="right-side">
+
+              <TextField
+                name="fullName"
+                label="Full Name"
+                value={formData.fullName}
+                onChange={handleChangeForm}
+                className="input-field"
+                sx={{
+                  '& .MuiOutlinedInput-root': { borderRadius: '10px', }
+                }}
+              />
+
+              <TextField
+                name="email"
+                label="Email Address"
+                type="email"
+                value={formData.email}
+                onChange={handleChangeForm}
+                className="input-field"
+                sx={{
+                  '& .MuiOutlinedInput-root': { borderRadius: '10px', }
+                }}
+              />
+
+              <PhoneInput
+                className="input-field"
+                international
+                countryCallingCodeEditable={false}
+                defaultCountry="AE"
+                value={formData.phone}
+                limitMaxLength
+                onChange={(value) =>
+                  setFormData(prev => ({ ...prev, phone: value || '' }))
+                }
+              />
+
+              <div className="age-height-container">
                 <TextField
-                  label="Current Weight"
-                  id="outlined-start-adornment"
+                  name="age"
+                  label="Age"
+                  type="number"
+                  value={formData.age}
+                  onChange={(e) => handleDecimalChange('age', e.target.value)}
+                  onKeyDown={(e) => {
+                    if (['e', '-', '+'].includes(e.key)) e.preventDefault();
+                  }}
                   slotProps={{
                     input: {
-                      startAdornment: <InputAdornment position="start">kg</InputAdornment>,
-                    },
+                      inputProps: {
+                        step: 0.01,
+                        min: 0
+                      }
+                    }
+                  }}
+                  className="input-field"
+                  sx={{
+                    '& .MuiOutlinedInput-root': { borderRadius: '10px', }
                   }}
                 />
-                <FormControl fullWidth>
-                  <InputLabel>Training Days Per Week</InputLabel>
+
+                <TextField
+                  name="height"
+                  label="Height"
+                  type="number"
+                  value={formData.height}
+                  onChange={(e) => handleDecimalChange('height', e.target.value)}
+                  onKeyDown={(e) => {
+                    if (['e', '-', '+'].includes(e.key)) e.preventDefault();
+                  }}
+                  slotProps={{
+                    input: {
+                      inputProps: {
+                        step: 0.01,
+                        min: 0
+                      }
+                    }
+                  }}
+                  className="input-field"
+                  sx={{
+                    '& .MuiOutlinedInput-root': { borderRadius: '10px', }
+                  }}
+                />
+              </div>
+
+              <div className="weight-week-container">
+                <TextField
+                  name="weight"
+                  label="Weight"
+                  type="number"
+                  value={formData.weight}
+                  onChange={(e) => handleDecimalChange('weight', e.target.value)}
+                  onKeyDown={(e) => {
+                    if (['e', '-', '+'].includes(e.key)) e.preventDefault();
+                  }}
+                  slotProps={{
+                    input: {
+                      inputProps: {
+                        step: 0.01,
+                        min: 0
+                      }
+                    }
+                  }}
+                  className="input-field"
+                  sx={{
+                    '& .MuiOutlinedInput-root': { borderRadius: '10px', }
+                  }}
+                />
+
+                <FormControl className="input-field"
+                  sx={{
+                    '& .MuiOutlinedInput-root': { borderRadius: '10px', }
+                  }}
+                >
+                  <InputLabel>Training days per week</InputLabel>
                   <Select
-                    labelId="Training Days Per Week"
-                    value={days}
-                    label="Training Days Per Week"
-                    onChange={handleChange}
+                    name="days"
+                    label="Training days per week"
+                    value={formData.days}
+                    onChange={handleChangeForm}
                   >
-                    <MenuItem value={1}>1</MenuItem>
-                    <MenuItem value={2}>2</MenuItem>
-                    <MenuItem value={3}>3</MenuItem>
-                    <MenuItem value={4}>4</MenuItem>
-                    <MenuItem value={5}>5</MenuItem>
-                    <MenuItem value={6}>6</MenuItem>
-                    <MenuItem value={7}>7</MenuItem>
+                    {[1, 2, 3, 4, 5, 6, 7].map(d => (
+                      <MenuItem key={d} value={d}>{d}</MenuItem>
+                    ))}
                   </Select>
                 </FormControl>
               </div>
+
               <TextField
+                name="message"
                 label="Message"
                 multiline
                 rows={4}
-                defaultValue="Type your message here"
+                value={formData.message}
+                onChange={handleChangeForm}
+                className="input-field"
+                sx={{
+                  '& .MuiOutlinedInput-root': { borderRadius: '10px', }
+                }}
               />
-              <button className="send-msg-btn">Send Message <SendIcon className='icon'/></button>
-            </div>
+
+              <button type="submit" className="send-msg-btn">
+                Send Message <SendIcon className='icon' />
+              </button>
+            </form>
           </div>
         </div>
 
         <div className="contact-us-backdrop"></div>
       </section>
+      <footer>
+        <div className="text-description">
+          NTRL is an online fitness coaching platform dedicated to helping individuals build strength, resilience, and long-term health through expert guidance and structured training programs.
+        </div>
+        <ul className="sections-list">
+          <a href="#home"><li>Home</li></a>
+          <a href="#about"><li>About</li></a>
+          <a href="#features"><li>Features</li></a>
+          <a href="#plans"><li>Plans</li></a>
+          <a href="#success-stories"><li>Success Stories</li></a>
+          <a href="#contact-us"><li>Contact Us</li></a>
+        </ul>
+        <ul className="social-media-list">
+          <a href="https://www.facebook.com/"><li>Facebook</li></a>
+          <a href="https://www.instagram.com/"><li>Instagram</li></a>
+          <a href="https://www.youtube.com/"><li>Youtube</li></a>
+          <a href="https://www.t.me/"><li>Telegram</li></a>
+          <a href="https://www.wa.me/"><li>Whatsapp</li></a>
+          <a href="mailto:"><li>Email</li></a>
+        </ul>
+        <div className="logo-container">
+          <img src="/ntrlLogo.png" alt="" />
+        </div>
+      </footer>
+      <div className="bottom">
+          © 2026 NTRL Fitness. All rights reserved.
+        </div>
     </div>
   )
 }

@@ -45,3 +45,8 @@ button {
         border: solid 2px rgb(25, 223, 25);
     }
 }
+
+a{
+    text-decoration: none;
+    color: white;
+}

@@ -573,9 +573,14 @@ section {
                         display: flex;
                         align-items: center;
                         justify-content: center;
+                        color: #28A428;
 
                         .icon {
                             font-size: 4dvh;
+                        }
+
+                        a {
+                            color: #28A428;
                         }
                     }
                 }
@@ -633,22 +638,226 @@ section {
     }
 }
 
-@supports not (background-image: url('/success-stories-bg.avif')){
-    .success-stories{
+@supports not (background-image: url('/success-stories-bg.avif')) {
+    .success-stories {
         background-image: url('/success-stories-bg.webp');
     }
 }
 
-.contact-us{
+.contact-us {
     background-image: url('/contact-us-bg.avif');
 
-    .contact-us-contents{
+    .contact-us-contents {
         position: relative;
         z-index: 999;
+        height: 80%;
+        margin-top: 7%;
+        width: 92%;
+        margin-left: 4%;
+        display: flex;
+        flex-direction: column;
+
+        .title-section {
+            display: flex;
+            flex-direction: column;
+
+            .main-title {
+                font-size: 5dvh;
+            }
+
+            .sub-title {
+                font-family: "Oswald";
+                font-size: 2.5dvh;
+            }
+        }
+
+        .contact-box-container {
+            flex: 1;
+            margin-top: 2%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2%;
+
+            .left-side {
+                background-color: rgb(25, 223, 25);
+                height: 100%;
+                width: 60%;
+                border-radius: 40px;
+                padding: 2%;
+
+                .title {
+                    font-size: 4dvh;
+                    color: #145214;
+                    font-weight: 600;
+                }
+
+                .card-container {
+                    margin-top: 2%;
+                    height: 60%;
+                    display: grid;
+                    grid-template-columns: repeat(2, 2fr);
+                    gap: 40px;
+
+                    .card {
+                        background-color: #ADEBAD;
+                        border-radius: 20px;
+                        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+                        display: flex;
+                        align-items: center;
+                        gap: 5%;
+                        padding: 4%;
+                        transition: all 0.3s;
+
+                        .icon-container {
+                            background-color: #32CD32;
+                            height: 70%;
+                            aspect-ratio: 1/1;
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            .icon {
+                                font-size: 4dvh;
+                                color: #145214;
+                            }
+                        }
+
+                        .text-container {
+                            display: flex;
+                            flex-direction: column;
+                            color: #145214;
+
+                            .main-text {
+                                font-size: 2.5dvh;
+                            }
+
+                            .sub-text {
+                                font-size: 1.5dvh;
+                            }
+                        }
+
+                        &:hover{
+                            background-color: white;
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .social-media-container {
+                    display: flex;
+                    margin-top: 5%;
+                    border-top: solid 4px white;
+                    padding-top: 5%;
+                    align-items: center;
+                    justify-content: space-between;
+                    color: #145214;
+                    gap: 10%;
+
+                    .text {
+                        font-size: 2dvh;
+                        font-weight: 500;
+                    }
+
+                    .social-media-icons-container {
+                        flex: 1;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        .icon {
+                            font-size: 4.5dvh;
+                            color: #145214;
+                            transition: all 0.3s;
+
+                            &:hover{
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .right-side {
+                background-color: #ADEBAD;
+                height: 100%;
+                width: 40%;
+                border-radius: 40px;
+                display: flex;
+                flex-direction: column;
+                padding: 2%;
+                align-items: center;
+                justify-content: space-between;
+
+                .input-field {
+                    background-color: white;
+                    border: none;
+                    border-radius: 10px;
+                    width: 100%;
+                }
+
+                .age-height-container,
+                .weight-week-container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 3%;
+                    width: 100%;
+
+                    .input-field {
+                        width: 50%;
+                    }
+                }
+
+                .input-field.PhoneInput {
+                    background-color: white;
+                    border-radius: 10px;
+                    padding: 10px;
+                    height: 56px; // match MUI TextField
+                    display: flex;
+                    align-items: center;
+                    border: 1px solid #ccc;
+
+                    .PhoneInputCountry {
+                        margin-right: 8px;
+                        color: #145214;
+                    }
+
+                    .PhoneInputCountrySelect {
+                        border: none;
+                        outline: none;
+                        background: transparent;
+                        font-size: 14px;
+                        cursor: pointer;
+                    }
+
+                    .PhoneInputInput {
+                        border: none;
+                        outline: none;
+                        font-size: 16px;
+                        width: 100%;
+                        background: transparent;
+                    }
+                }
+
+                .send-msg-btn{
+                    height: 56px;
+                    width: 50%;
+                    border-radius: 10px;
+                    border: none;
+                    font-size: 1.8dvh;
+
+                    .icon{
+                        font-size: 2.5dvh;
+                    }
+                }
+            }
+        }
     }
 
-    .contact-us-backdrop{
-        background-color: rgba(0,0,0,0.4);
+    .contact-us-backdrop {
+        background-color: rgba(0, 0, 0, 0.4);
         backdrop-filter: blur(5px);
         height: 100%;
         width: 100%;
@@ -659,8 +868,52 @@ section {
     }
 }
 
-@supports not (background-image: url('/contact-us-bg.avif')){
-    .contact-us{
+@supports not (background-image: url('/contact-us-bg.avif')) {
+    .contact-us {
         background-image: url('/contact-us-bg.webp');
     }
+}
+
+footer{
+    background-color: #ADEBAD;
+    display: flex;
+    height: 30dvh;
+    padding-top: 3%;
+    justify-content: space-around;
+    color: #145214;
+
+    .text-description{
+        width: 40%;
+        font-size: 2.5dvh;
+        text-align: justify;
+    }
+
+    ul{
+        color: #145214;
+
+        li{
+            color: #145214;
+            font-size: 2dvh;
+            list-style: none;
+            text-decoration: underline;
+            margin-top: 5%;
+
+            &:hover{
+                color: white;
+            }
+        }
+    }
+
+    .logo-container{
+        height: 60%;
+    }
+}
+
+.bottom{
+    background-color: #145214;
+    height: 4dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2dvh;
 }
