@@ -34,6 +34,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useRef } from 'react';
 import { ArrowCircleLeft } from '@mui/icons-material';
 import { ArrowCircleRight } from '@mui/icons-material';
+import CloseIcon from '@mui/icons-material/Close';
 
 function App() {
 
@@ -59,7 +60,7 @@ function App() {
         });
       },
       {
-        threshold: 0.6,
+        threshold: 0.1,
       }
     );
 
@@ -148,6 +149,16 @@ function App() {
     });
   };
 
+  const [isMoved, setIsMoved] = useState(false);
+
+  const moveRight = () => {
+    setIsMoved(false);
+  };
+
+  const moveLeft = () => {
+    setIsMoved(true);
+  };
+
   return (
     <div className="main-container">
       <nav className="nav-container">
@@ -166,8 +177,24 @@ function App() {
 
         <button className="view-plans-btn" onClick={() => ScrollIntoSection("plans")}>View Plans <ArrowCircleRightIcon /></button>
 
-        <div className="menu-icon-container"><MenuIcon className='icon' /></div>
+        <div className="menu-icon-container" onClick={moveLeft}><MenuIcon className='icon' /></div>
       </nav>
+
+      <div className="side-menu" style={{
+        right: isMoved? "0":"-50%",
+      }}>
+        <div className="close-icon" onClick={moveRight}>
+          <CloseIcon className='icon'/>
+        </div>
+        <ul className="navlinks">
+          <li className={activeNav === "home" ? "active" : ""} onClick={() => ScrollIntoSection("home")}>Home</li>
+          <li className={activeNav === "about" ? "active" : ""} onClick={() => ScrollIntoSection("about")}>About</li>
+          <li className={activeNav === "features" ? "active" : ""} onClick={() => ScrollIntoSection("features")}>Features</li>
+          <li className={activeNav === "plans" ? "active" : ""} onClick={() => ScrollIntoSection("plans")}>Plans</li>
+          <li className={activeNav === "success-stories" ? "active" : ""} onClick={() => ScrollIntoSection("success-stories")}>Success Stories</li>
+          <li className={activeNav === "contact-us" ? "active" : ""} onClick={() => ScrollIntoSection("contact-us")}>Contact Us</li>
+        </ul>
+      </div>
 
       <section className="home" id="home">
         <div className="home-contents">
