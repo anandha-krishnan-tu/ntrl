@@ -45,7 +45,7 @@ nav {
         font-size: 1.1vw;
     }
 
-    .menu-icon-container{
+    .menu-icon-container {
         display: none;
     }
 }
@@ -542,6 +542,11 @@ section {
             }
         }
 
+        .arrow-left,
+        .arrow-right {
+            display: none;
+        }
+
         .cards-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -707,7 +712,7 @@ section {
                 background-color: rgb(25, 223, 25);
                 height: 100%;
                 width: 60%;
-                border-radius: 40px;
+                border-radius: 20px;
                 padding: 2%;
 
                 .title {
@@ -807,7 +812,7 @@ section {
                 background-color: #ADEBAD;
                 height: 100%;
                 width: 40%;
-                border-radius: 40px;
+                border-radius: 20px;
                 display: flex;
                 flex-direction: column;
                 padding: 2%;
@@ -872,6 +877,34 @@ section {
                         font-size: 16px;
                         width: 100%;
                         background: transparent;
+                    }
+                }
+
+                .input-field {
+                    height: 10%;
+                    display: flex;
+
+                    .MuiInputBase-root {
+                        height: 100%;
+                        border-radius: 6px;
+                    }
+
+                    .MuiOutlinedInput-root {
+                        height: 100%;
+                    }
+
+                    .MuiSelect-select {
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+
+                        .MuiInputLabel-root {
+                            top: 16px;
+                        }
+                    }
+
+                    .MuiInputLabel-root {
+                        top: -6px;
                     }
                 }
 
@@ -954,15 +987,18 @@ footer {
 
 //mobile
 @media (max-width: 767px) {
-    nav{
+    nav {
         height: 8dvh;
-        .navlinks{
+
+        .navlinks {
             display: none;
         }
-        button{
+
+        button {
             display: none;
         }
-        .menu-icon-container{
+
+        .menu-icon-container {
             display: block;
         }
     }
@@ -995,6 +1031,7 @@ footer {
             .cta-btn-container {
                 justify-content: space-between;
                 height: 7%;
+
                 button {
                     font-size: 3.5dvw;
                     gap: 4%;
@@ -1008,6 +1045,7 @@ footer {
 
             .social-media-icons-container {
                 justify-content: space-between;
+
                 a {
                     .icon {
                         font-size: 8dvw;
@@ -1024,8 +1062,8 @@ footer {
     .about {
         background-position: left 10% center;
 
-        .about-backdrop{
-            background-color: rgba(0,0,0,0.3);
+        .about-backdrop {
+            background-color: rgba(0, 0, 0, 0.3);
         }
 
         .about-container {
@@ -1075,9 +1113,9 @@ footer {
 
     .features {
         background-position: right 15% center;
-    
-        .features-backdrop{
-            background-color: rgba(0,0,0,0.4);
+
+        .features-backdrop {
+            background-color: rgba(0, 0, 0, 0.4);
         }
 
         .features-contents {
@@ -1123,7 +1161,7 @@ footer {
     .plans {
         height: auto;
         min-height: 100dvh;
-        
+
         .plans-container {
             width: 90%;
             gap: 3%;
@@ -1204,6 +1242,7 @@ footer {
                     .top-section {
                         .head-tag {
                             width: 100%;
+
                             .left {
                                 font-size: 3dvw;
                             }
@@ -1220,7 +1259,8 @@ footer {
 
     .success-stories {
         .success-stories-contents {
-            margin-top: 25%;
+            margin-top: 30%;
+            align-items: center;
 
             .title-section {
                 text-align: center;
@@ -1240,29 +1280,65 @@ footer {
                 }
             }
 
+            .arrow-left,
+            .arrow-right {
+                display: block;
+            }
+
+            .arrow-left {
+                position: absolute;
+                left: 0;
+                top: 50%;
+
+                .icon {
+                    font-size: 6dvw;
+                    color: #32CD32;
+                }
+            }
+
+            .arrow-right {
+                position: absolute;
+                right: 0;
+                top: 50%;
+
+                .icon {
+                    font-size: 6dvw;
+                    color: #32CD32;
+                }
+            }
+
             .cards-container {
-                flex: 1;
-                grid-template-columns: repeat(2, 2fr);
+                width: 80%;
+                height: 70%;
+                display: flex;
+                padding: 0;
+                margin-top: 20;
+                margin-top: 10%;
+                gap: 25px;
+                // overflow-x: hidden;
+                scroll-behavior: smooth;
+                // scroll-snap-type: x mandatory;
 
                 .card {
+                    width: 100%;
+                    min-width: 100%;
+                    flex-shrink: 0;
+                    scroll-snap-align: start;
+
                     .top-section {
+                        height: 16%;
+
+                        .pro-pic {
+                            height: 60%;
+                        }
+
                         .name {
-                            font-size: 2.2dvw;
+                            font-size: 4.5dvw;
                         }
 
                         .instagram-icon {
                             .icon {
-                                font-size: 4dvw;
-                            }
-                        }
-                    }
-
-                    .bottom-section {
-
-                        .before-section,
-                        .after-section {
-                            .title {
-                                font-size: 2dvw;
+                                font-size: 8dvw;
                             }
                         }
                     }
@@ -1273,17 +1349,19 @@ footer {
 
     .contact-us {
         .contact-us-contents {
-            margin-top: 15%;
+            margin-top: 25%;
             width: 90%;
             margin-left: 5%;
 
             .title-section {
                 .main-title {
-                    font-size: 5dvw;
+                    font-size: 7dvw;
+                    text-align: center;
                 }
 
                 .sub-title {
-                    font-size: 2.5dvw;
+                    font-size: 2.6dvw;
+                    text-align: center;
                 }
             }
 
@@ -1292,16 +1370,17 @@ footer {
                 flex: 1;
 
                 .left-side {
-                    height: 40%;
+                    height: 30%;
                     width: 100%;
-                    border-radius: 20px;
+                    border-radius: 10px;
+                    padding: 4%;
 
                     .title {
-                        font-size: 3dvw;
+                        font-size: 5dvw;
                     }
 
                     .card-container {
-                        height: 50%;
+                        height: 40%;
                         gap: 2%;
                         display: flex;
                         align-items: stretch;
@@ -1338,8 +1417,8 @@ footer {
                     }
 
                     .social-media-container {
-                        margin-top: 2%;
-                        padding: 2%;
+                        margin-top: 5%;
+                        padding-top: 4%;
 
                         .text {
                             font-size: 2dvw;
@@ -1354,31 +1433,91 @@ footer {
                 }
 
                 .right-side {
-                    height: 60%;
+                    height: 70%;
                     width: 100%;
-                    border-radius: 20px;
-                    padding: 2%;
+                    border-radius: 10px;
+                    padding: 3% 2%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .MuiTextField-root {
+                        height: 10%;
+
+                        .MuiInputBase-root {
+                            height: 100%;
+                        }
+
+                        .MuiInputBase-input {
+                            height: 100%;
+                            padding: 0 14px;
+                        }
+                    }
+
+                    .input-field.PhoneInput {
+                        border-radius: 6px;
+                        height: 10%;
+                        display: flex;
+                        align-items: center;
+
+                    }
+
+                    .input-field {
+                        height: 10%;
+                        display: flex;
+
+                        .MuiInputBase-root {
+                            height: 100%;
+                            border-radius: 6px;
+                        }
+
+                        .MuiOutlinedInput-root {
+                            height: 100%;
+                        }
+
+                        .MuiSelect-select {
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+
+                            .MuiInputLabel-root {
+                                top: 16px;
+                            }
+                        }
+
+                        .MuiInputLabel-root {
+                            top: -6px;
+                            font-size: 3dvw;
+                        }
+                    }
+
+                    .send-msg-btn {
+                        height: 10%;
+                    }
                 }
             }
         }
     }
 
-    footer{
-        height: 20dvh;
-        .text-description{
+    footer {
+        height: 10dvh;
+
+        .text-description {
             font-size: 2dvw;
         }
-        ul{
-            li{
+
+        ul {
+            li {
                 font-size: 1.2dvw;
             }
         }
-        .logo-container{
+
+        .logo-container {
             height: 40%;
         }
     }
 
-    .bottom{
+    .bottom {
         font-size: 1.8dvw;
     }
 }
@@ -1752,22 +1891,25 @@ footer {
         }
     }
 
-    footer{
-        height: 20dvh;
-        .text-description{
+    footer {
+        height: 16dvh;
+
+        .text-description {
             font-size: 2dvw;
         }
-        ul{
-            li{
+
+        ul {
+            li {
                 font-size: 1.2dvw;
             }
         }
-        .logo-container{
+
+        .logo-container {
             height: 40%;
         }
     }
 
-    .bottom{
+    .bottom {
         font-size: 1.8dvw;
     }
 }

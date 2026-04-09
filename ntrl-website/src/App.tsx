@@ -32,6 +32,8 @@ import SendIcon from '@mui/icons-material/Send';
 import emailjs from '@emailjs/browser';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useRef } from 'react';
+import { ArrowCircleLeft } from '@mui/icons-material';
+import { ArrowCircleRight } from '@mui/icons-material';
 
 function App() {
 
@@ -120,6 +122,32 @@ function App() {
     }
   };
 
+  const cardContainerRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollRight = () => {
+    if (!cardContainerRef.current) return;
+
+    const container = cardContainerRef.current;
+    const scrollAmount = container.clientWidth + 25;
+
+    container.scrollBy({
+      left: scrollAmount,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollLeft = () => {
+    if (!cardContainerRef.current) return;
+
+    const container = cardContainerRef.current;
+    const scrollAmount = container.clientWidth + 25;
+
+    container.scrollBy({
+      left: -scrollAmount,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="main-container">
       <nav className="nav-container">
@@ -138,7 +166,7 @@ function App() {
 
         <button className="view-plans-btn" onClick={() => ScrollIntoSection("plans")}>View Plans <ArrowCircleRightIcon /></button>
 
-        <div className="menu-icon-container"><MenuIcon className='icon'/></div>
+        <div className="menu-icon-container"><MenuIcon className='icon' /></div>
       </nav>
 
       <section className="home" id="home">
@@ -190,7 +218,7 @@ function App() {
           </div>
           <div className="button-container">
             <button className="transformation-btn">Start My Transformation <KeyboardDoubleArrowRightIcon className='icon' /></button>
-            <button className="view-plans-btn" onClick={()=>{ScrollIntoSection("plans")}}>View Plans <ArrowCircleRightIcon className='icon' /></button>
+            <button className="view-plans-btn" onClick={() => { ScrollIntoSection("plans") }}>View Plans <ArrowCircleRightIcon className='icon' /></button>
           </div>
         </div>
         <div className="about-backdrop"></div>
@@ -343,7 +371,10 @@ function App() {
             <div className="main-title">Real results . Real people</div>
             <div className="sub-title">Our members are building stronger, leaner bodies through structured coaching and consistency.</div>
           </div>
-          <div className="cards-container">
+          <div className="arrow-left" onClick={scrollLeft}>
+            <ArrowCircleLeft className='icon'/>
+          </div>
+          <div className="cards-container success-cards-container" ref={cardContainerRef}>
             <div className="card">
               <div className="top-section">
                 <div className="pro-pic" style={{
@@ -521,6 +552,9 @@ function App() {
               </div>
             </div>
           </div>
+          <div className="arrow-right" onClick={scrollRight}>
+            <ArrowCircleRight className='icon'/>
+          </div>
         </div>
 
         <div className="success-stories-backdrop"></div>
@@ -628,7 +662,7 @@ function App() {
               />
 
               <PhoneInput
-                className="input-field"
+                className="input-field PhoneInput"
                 international
                 countryCallingCodeEditable={false}
                 defaultCountry="AE"
@@ -711,7 +745,7 @@ function App() {
                   }}
                 />
 
-                <FormControl className="input-field"
+                <FormControl size='small' className="input-field"
                   sx={{
                     '& .MuiOutlinedInput-root': { borderRadius: '10px', }
                   }}
@@ -775,8 +809,8 @@ function App() {
         </div>
       </footer>
       <div className="bottom">
-          © 2026 NTRL Fitness. All rights reserved.
-        </div>
+        © 2026 NTRL Fitness. All rights reserved.
+      </div>
     </div>
   )
 }
