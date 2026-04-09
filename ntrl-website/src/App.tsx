@@ -30,6 +30,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import SendIcon from '@mui/icons-material/Send';
 import emailjs from '@emailjs/browser';
+import MenuIcon from '@mui/icons-material/Menu';
 import { useRef } from 'react';
 
 function App() {
@@ -136,6 +137,8 @@ function App() {
         </ul>
 
         <button className="view-plans-btn" onClick={() => ScrollIntoSection("plans")}>View Plans <ArrowCircleRightIcon /></button>
+
+        <div className="menu-icon-container"><MenuIcon className='icon'/></div>
       </nav>
 
       <section className="home" id="home">
@@ -187,7 +190,7 @@ function App() {
           </div>
           <div className="button-container">
             <button className="transformation-btn">Start My Transformation <KeyboardDoubleArrowRightIcon className='icon' /></button>
-            <button className="view-plans-btn">View Plans <ArrowCircleRightIcon className='icon' /></button>
+            <button className="view-plans-btn" onClick={()=>{ScrollIntoSection("plans")}}>View Plans <ArrowCircleRightIcon className='icon' /></button>
           </div>
         </div>
         <div className="about-backdrop"></div>
@@ -730,11 +733,9 @@ function App() {
               <TextField
                 name="message"
                 label="Message"
-                multiline
-                rows={4}
                 value={formData.message}
                 onChange={handleChangeForm}
-                className="input-field"
+                className="input-field message-input"
                 sx={{
                   '& .MuiOutlinedInput-root': { borderRadius: '10px', }
                 }}

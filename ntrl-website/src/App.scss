@@ -44,6 +44,10 @@ nav {
         border-radius: 100px;
         font-size: 1.1vw;
     }
+
+    .menu-icon-container{
+        display: none;
+    }
 }
 
 section {
@@ -408,6 +412,14 @@ section {
                     }
                 }
 
+                ul {
+                    li {
+                        display: flex;
+                        align-items: center;
+                        gap: 2%;
+                    }
+                }
+
                 .start-plan-button {
                     background-color: #28A428;
                     width: 80%;
@@ -465,6 +477,15 @@ section {
             }
 
             .bottom-section {
+
+                ul {
+                    li {
+                        display: flex;
+                        align-items: center;
+                        gap: 2%;
+                    }
+                }
+
                 .start-plan-button {
                     background-color: #145214;
                     width: 90%;
@@ -672,7 +693,10 @@ section {
         }
 
         .contact-box-container {
-            flex: 1;
+            // flex: 1;
+            // margin-top: 2%;
+            // margin-bottom: 2%;
+            height: 85%;
             margin-top: 2%;
             display: flex;
             align-items: center;
@@ -738,7 +762,7 @@ section {
                             }
                         }
 
-                        &:hover{
+                        &:hover {
                             background-color: white;
                             cursor: pointer;
                         }
@@ -771,7 +795,7 @@ section {
                             color: #145214;
                             transition: all 0.3s;
 
-                            &:hover{
+                            &:hover {
                                 color: white;
                             }
                         }
@@ -789,12 +813,15 @@ section {
                 padding: 2%;
                 align-items: center;
                 justify-content: space-between;
+                gap: 2%;
 
                 .input-field {
-                    background-color: white;
+                    // background-color: white;
                     border: none;
                     border-radius: 10px;
                     width: 100%;
+                    height: 12%;
+                    // max-height: 12%;
                 }
 
                 .age-height-container,
@@ -804,20 +831,27 @@ section {
                     justify-content: space-between;
                     gap: 3%;
                     width: 100%;
+                    height: 12%;
 
                     .input-field {
                         width: 50%;
+                        height: 100%;
+                    }
+
+                    .message-input {
+                        max-height: 12%;
                     }
                 }
 
                 .input-field.PhoneInput {
-                    background-color: white;
+                    // background-color: white;
+                    background-color: transparent;
                     border-radius: 10px;
                     padding: 10px;
-                    height: 56px; // match MUI TextField
+                    height: 12%; // match MUI TextField
                     display: flex;
                     align-items: center;
-                    border: 1px solid #ccc;
+                    border: 1px solid #00000045;
 
                     .PhoneInputCountry {
                         margin-right: 8px;
@@ -841,14 +875,14 @@ section {
                     }
                 }
 
-                .send-msg-btn{
-                    height: 56px;
+                .send-msg-btn {
+                    height: 12%;
                     width: 50%;
                     border-radius: 10px;
                     border: none;
                     font-size: 1.8dvh;
 
-                    .icon{
+                    .icon {
                         font-size: 2.5dvh;
                     }
                 }
@@ -874,7 +908,7 @@ section {
     }
 }
 
-footer{
+footer {
     background-color: #ADEBAD;
     display: flex;
     height: 30dvh;
@@ -882,34 +916,34 @@ footer{
     justify-content: space-around;
     color: #145214;
 
-    .text-description{
+    .text-description {
         width: 40%;
         font-size: 2.5dvh;
         text-align: justify;
     }
 
-    ul{
+    ul {
         color: #145214;
 
-        li{
+        li {
             color: #145214;
             font-size: 2dvh;
             list-style: none;
             text-decoration: underline;
             margin-top: 5%;
 
-            &:hover{
+            &:hover {
                 color: white;
             }
         }
     }
 
-    .logo-container{
+    .logo-container {
         height: 60%;
     }
 }
 
-.bottom{
+.bottom {
     background-color: #145214;
     height: 4dvh;
     display: flex;
@@ -917,3 +951,900 @@ footer{
     justify-content: center;
     font-size: 2dvh;
 }
+
+//mobile
+@media (max-width: 767px) {
+    nav{
+        height: 8dvh;
+        .navlinks{
+            display: none;
+        }
+        button{
+            display: none;
+        }
+        .menu-icon-container{
+            display: block;
+        }
+    }
+
+    .home {
+        background-position: right 10% center;
+
+        .home-contents {
+            position: absolute;
+            // margin-top: 30%;
+            bottom: 25%;
+            width: 80%;
+            left: 10%;
+            margin: 0;
+            height: 70%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: end;
+            gap: 2%;
+
+            .main-title {
+                font-size: 35dvw;
+            }
+
+            .sub-title {
+                font-size: 5.2dvw;
+            }
+
+            .cta-btn-container {
+                justify-content: space-between;
+                height: 7%;
+                button {
+                    font-size: 3.5dvw;
+                    gap: 4%;
+                    width: 45%;
+
+                    .icon {
+                        font-size: 5dvw;
+                    }
+                }
+            }
+
+            .social-media-icons-container {
+                justify-content: space-between;
+                a {
+                    .icon {
+                        font-size: 8dvw;
+                    }
+                }
+            }
+        }
+
+        .home-backdrop {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    .about {
+        background-position: left 10% center;
+
+        .about-backdrop{
+            background-color: rgba(0,0,0,0.3);
+        }
+
+        .about-container {
+            height: 60%;
+            position: absolute;
+            margin: 0;
+            width: 80%;
+            left: 10%;
+            top: 20%;
+
+            .main-title {
+                font-size: 10dvw;
+                text-align: center;
+                font-weight: 600;
+            }
+
+            .sub-title {
+                font-size: 4dvw;
+                margin-top: 5%;
+            }
+
+            .paper-title {
+                width: 90%;
+                font-size: 3.3dvw;
+            }
+
+            .button-container {
+                width: 100%;
+                height: 40%;
+                flex-direction: column;
+                gap: 20%;
+                align-items: center;
+
+                button {
+                    width: 80%;
+                    height: 70%;
+                    font-size: 4dvw;
+                    gap: 2%;
+
+                    .icon {
+                        font-size: 6dvw;
+                    }
+                }
+            }
+        }
+    }
+
+    .features {
+        background-position: right 15% center;
+    
+        .features-backdrop{
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .features-contents {
+            width: 80%;
+            margin-top: 30%;
+            margin-left: 10%;
+
+            .main-title {
+                font-size: 11dvw;
+                font-weight: 500;
+            }
+
+            .sub-title {
+                font-size: 3.2dvw;
+            }
+
+            .cards-container {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: space-between;
+
+                .card {
+                    height: 24%;
+                    border-radius: 10px;
+
+                    .title {
+                        font-size: 5dvw;
+
+                        .icon {
+                            font-size: 6dvw;
+                        }
+                    }
+
+                    .description {
+                        font-size: 4dvw;
+                    }
+                }
+            }
+        }
+    }
+
+    .plans {
+        height: auto;
+        min-height: 100dvh;
+        
+        .plans-container {
+            width: 90%;
+            gap: 3%;
+            margin-top: 20%;
+
+            .main-title {
+                font-size: 10dvw;
+                text-align: center;
+            }
+
+            .sub-title {
+                font-size: 2dvw;
+            }
+
+            .cards-container {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+                padding-bottom: 40px;
+                padding-top: 20px;
+
+                .card {
+                    width: 70%;
+                    aspect-ratio: 1/1.6;
+
+                    .top-section {
+                        height: 40%;
+
+                        .head-tag {
+                            width: 70%;
+                            font-size: 3.2dvw;
+
+                            .icon {
+                                font-size: 5dvw;
+                            }
+                        }
+
+                        .week-text {
+                            font-size: 4dvw;
+                        }
+
+                        .description-section {
+                            font-size: 3dvw;
+                        }
+
+                        .price {
+                            font-size: 10dvw;
+                        }
+                    }
+
+                    .bottom-section {
+                        height: 60%;
+
+                        .description-section {
+                            font-size: 3dvw;
+                        }
+
+                        .plan-details {
+                            li {
+                                font-size: 3.5dvw;
+                            }
+                        }
+
+                        button {
+                            font-size: 3dvw;
+                            gap: 2px;
+
+                            .icon {
+                                font-size: 6dvw;
+                            }
+                        }
+                    }
+                }
+
+                .popular {
+
+                    .top-section {
+                        .head-tag {
+                            width: 100%;
+                            .left {
+                                font-size: 3dvw;
+                            }
+
+                            .right {
+                                font-size: 2.5dvw;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .success-stories {
+        .success-stories-contents {
+            margin-top: 25%;
+
+            .title-section {
+                text-align: center;
+                flex-direction: column;
+
+                .main-title {
+                    font-size: 8dvw;
+                    border: none;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                .sub-title {
+                    font-size: 2.5dvw;
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+
+            .cards-container {
+                flex: 1;
+                grid-template-columns: repeat(2, 2fr);
+
+                .card {
+                    .top-section {
+                        .name {
+                            font-size: 2.2dvw;
+                        }
+
+                        .instagram-icon {
+                            .icon {
+                                font-size: 4dvw;
+                            }
+                        }
+                    }
+
+                    .bottom-section {
+
+                        .before-section,
+                        .after-section {
+                            .title {
+                                font-size: 2dvw;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .contact-us {
+        .contact-us-contents {
+            margin-top: 15%;
+            width: 90%;
+            margin-left: 5%;
+
+            .title-section {
+                .main-title {
+                    font-size: 5dvw;
+                }
+
+                .sub-title {
+                    font-size: 2.5dvw;
+                }
+            }
+
+            .contact-box-container {
+                flex-direction: column;
+                flex: 1;
+
+                .left-side {
+                    height: 40%;
+                    width: 100%;
+                    border-radius: 20px;
+
+                    .title {
+                        font-size: 3dvw;
+                    }
+
+                    .card-container {
+                        height: 50%;
+                        gap: 2%;
+                        display: flex;
+                        align-items: stretch;
+                        justify-content: space-between;
+
+                        .card {
+                            flex-direction: column;
+                            width: 23%;
+                            padding: 1%;
+                            gap: 5%;
+                            border-radius: 10px;
+
+                            .icon-container {
+                                height: 30%;
+
+                                .icon {
+                                    font-size: 3dvw;
+                                }
+                            }
+
+                            .text-container {
+                                align-items: center;
+                                gap: 2%;
+
+                                .main-text {
+                                    font-size: 2.3dvw;
+                                }
+
+                                .sub-text {
+                                    font-size: 1.6dvw;
+                                }
+                            }
+                        }
+                    }
+
+                    .social-media-container {
+                        margin-top: 2%;
+                        padding: 2%;
+
+                        .text {
+                            font-size: 2dvw;
+                        }
+
+                        .social-media-icons-container {
+                            .icon {
+                                font-size: 4dvw;
+                            }
+                        }
+                    }
+                }
+
+                .right-side {
+                    height: 60%;
+                    width: 100%;
+                    border-radius: 20px;
+                    padding: 2%;
+                }
+            }
+        }
+    }
+
+    footer{
+        height: 20dvh;
+        .text-description{
+            font-size: 2dvw;
+        }
+        ul{
+            li{
+                font-size: 1.2dvw;
+            }
+        }
+        .logo-container{
+            height: 40%;
+        }
+    }
+
+    .bottom{
+        font-size: 1.8dvw;
+    }
+}
+
+//tablet
+@media (min-width: 768px) and (max-width: 1024px) {
+    nav {
+        .logo-container {
+            height: 70%;
+        }
+
+        .navlinks {
+            width: 60%;
+
+            li {
+                font-size: 1.2dvh;
+            }
+        }
+
+        .view-plans-btn {
+            width: 18%;
+            height: 30%;
+        }
+    }
+
+    .home {
+        background-position: right center;
+
+        .home-contents {
+            position: absolute;
+            // margin-top: 30%;
+            bottom: 10%;
+            width: 80%;
+            left: 10%;
+            margin: 0;
+            height: 70%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: end;
+            gap: 2%;
+
+            .main-title {
+                font-size: 32dvw;
+            }
+
+            .sub-title {
+                font-size: 5dvw;
+            }
+
+            .cta-btn-container {
+                button {
+                    font-size: 3.3dvw;
+
+                    .icon {
+                        font-size: 5dvw;
+                    }
+                }
+            }
+
+            .social-media-icons-container {
+                a {
+                    .icon {
+                        font-size: 6dvw;
+                    }
+                }
+            }
+        }
+
+        .home-backdrop {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    .about {
+        background-position: left 10% center;
+
+        .about-container {
+            height: 50%;
+            margin-top: -10%;
+
+            .main-title {
+                font-size: 6dvw;
+                text-align: center;
+            }
+
+            .sub-title {
+                font-size: 3dvw;
+                margin-top: 5%;
+            }
+
+            .paper-title {
+                width: 90%;
+                font-size: 2.6dvw;
+            }
+
+            .button-container {
+                button {
+                    width: 46%;
+                    height: 70%;
+                    font-size: 1.5dvw;
+                    gap: 2%;
+
+                    .icon {
+                        font-size: 3dvw;
+                    }
+                }
+            }
+        }
+    }
+
+    .features {
+        background-position: right 15% center;
+
+        .features-contents {
+            width: 80%;
+            margin-top: 20%;
+            margin-left: 10%;
+
+            .main-title {
+                font-size: 10dvw;
+            }
+
+            .sub-title {
+                font-size: 3.2dvw;
+            }
+
+            .cards-container {
+                .card {
+
+                    // background-color: transparent;
+                    // backdrop-filter: blur(20px);
+                    .title {
+                        font-size: 2.8dvw;
+
+                        .icon {
+                            font-size: 4dvw;
+                        }
+                    }
+
+                    .description {
+                        font-size: 2.8dvw;
+                    }
+                }
+            }
+        }
+    }
+
+    .plans {
+        .plans-container {
+            height: 60%;
+            width: 90%;
+            gap: 3%;
+            margin-top: 25%;
+
+            .main-title {
+                font-size: 6dvw;
+            }
+
+            .sub-title {
+                font-size: 2dvw;
+            }
+
+            .cards-container {
+                width: 100%;
+
+                .card {
+                    height: 70%;
+
+                    .top-section {
+                        height: 40%;
+
+                        .head-tag {
+                            font-size: 1.2dvw;
+
+                            .icon {
+                                font-size: 2dvw;
+                            }
+                        }
+
+                        .week-text {
+                            font-size: 1.5dvw;
+                        }
+
+                        .description-section {
+                            font-size: 1.3dvw;
+                        }
+
+                        .price {
+                            font-size: 4dvw;
+                        }
+                    }
+
+                    .bottom-section {
+                        height: 60%;
+
+                        .description-section {
+                            font-size: 1.3dvw;
+                        }
+
+                        .plan-details {
+                            li {
+                                font-size: 1.5dvw;
+                            }
+                        }
+
+                        button {
+                            font-size: 1.1dvw;
+                            gap: 2px;
+
+                            .icon {
+                                font-size: 3dvw;
+                            }
+                        }
+                    }
+                }
+
+                .popular {
+                    height: 80%;
+
+                    .top-section {
+                        .head-tag {
+                            .left {
+                                font-size: 1dvw;
+                            }
+
+                            .right {
+                                font-size: 1dvw;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .success-stories {
+        .success-stories-contents {
+            margin-top: 20%;
+
+            .title-section {
+                .main-title {
+                    font-size: 5dvw;
+                }
+
+                .sub-title {
+                    font-size: 2.5dvw;
+                }
+            }
+
+            .cards-container {
+                flex: 1;
+                grid-template-columns: repeat(2, 2fr);
+
+                .card {
+                    .top-section {
+                        .name {
+                            font-size: 2.2dvw;
+                        }
+
+                        .instagram-icon {
+                            .icon {
+                                font-size: 4dvw;
+                            }
+                        }
+                    }
+
+                    .bottom-section {
+
+                        .before-section,
+                        .after-section {
+                            .title {
+                                font-size: 2dvw;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .contact-us {
+        .contact-us-contents {
+            margin-top: 15%;
+            width: 90%;
+            margin-left: 5%;
+
+            .title-section {
+                .main-title {
+                    font-size: 5dvw;
+                }
+
+                .sub-title {
+                    font-size: 2.5dvw;
+                }
+            }
+
+            .contact-box-container {
+                flex-direction: column;
+                flex: 1;
+
+                .left-side {
+                    height: 40%;
+                    width: 100%;
+                    border-radius: 20px;
+
+                    .title {
+                        font-size: 3dvw;
+                    }
+
+                    .card-container {
+                        height: 50%;
+                        gap: 2%;
+                        display: flex;
+                        align-items: stretch;
+                        justify-content: space-between;
+
+                        .card {
+                            flex-direction: column;
+                            width: 23%;
+                            padding: 1%;
+                            gap: 5%;
+                            border-radius: 10px;
+
+                            .icon-container {
+                                height: 30%;
+
+                                .icon {
+                                    font-size: 3dvw;
+                                }
+                            }
+
+                            .text-container {
+                                align-items: center;
+                                gap: 2%;
+
+                                .main-text {
+                                    font-size: 2.3dvw;
+                                }
+
+                                .sub-text {
+                                    font-size: 1.6dvw;
+                                }
+                            }
+                        }
+                    }
+
+                    .social-media-container {
+                        margin-top: 2%;
+                        padding: 2%;
+
+                        .text {
+                            font-size: 2dvw;
+                        }
+
+                        .social-media-icons-container {
+                            .icon {
+                                font-size: 4dvw;
+                            }
+                        }
+                    }
+                }
+
+                .right-side {
+                    height: 60%;
+                    width: 100%;
+                    border-radius: 20px;
+                    padding: 2%;
+                }
+            }
+        }
+    }
+
+    footer{
+        height: 20dvh;
+        .text-description{
+            font-size: 2dvw;
+        }
+        ul{
+            li{
+                font-size: 1.2dvw;
+            }
+        }
+        .logo-container{
+            height: 40%;
+        }
+    }
+
+    .bottom{
+        font-size: 1.8dvw;
+    }
+}
+
+//laptop
+@media (min-width: 1025px) and (max-width: 1279px) {
+    .features {
+        .features-contents {
+            .cards-container {
+                .card {
+                    .title {
+                        font-size: 3dvh;
+                    }
+
+                    .description {
+                        font-size: 2.7dvh;
+                    }
+                }
+            }
+        }
+    }
+
+    .plans {
+        .plans-container {
+            .cards-container {
+                .card {
+                    .top-section {
+                        .head-tag {
+                            font-size: 1.4dvh;
+                        }
+
+                        .week-text {
+                            font-size: 1.7dvh;
+                        }
+
+                        .description-section {
+                            font-size: 1.7dvh;
+                        }
+
+                        .price {
+                            font-size: 5dvh;
+                        }
+                    }
+
+                    .bottom-section {
+                        .description-section {
+                            font-size: 1.7dvh;
+                        }
+
+                        ul {
+                            li {
+                                font-size: 1.8dvh;
+                                display: flex;
+                                align-items: center;
+                                gap: 2%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .success-stories {
+        .success-stories-contents {
+            .title-section {
+                .main-title {
+                    font-size: 4dvh;
+                }
+
+                .sub-title {
+                    font-size: 2dvh;
+                }
+            }
+        }
+    }
+}
+
+//desktop
+@media (min-width: 1280px) {}
